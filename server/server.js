@@ -12,7 +12,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 
-mongoose.connect('mongodb://localhost:27017/auth',{ useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth',{ useNewUrlParser: true })
 
 const { User } = require('./models/user');
 const {auth} = require('./middleware/auth');
